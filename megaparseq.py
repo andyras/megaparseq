@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 
-debug = True
+debug = False
 
 import argparse
 
@@ -120,6 +120,8 @@ if (debug):
     print '.xyz output file is %s' % xyzfile
 
 with open(xyzfile, 'w') as f:
+    natoms = getNAtoms(job)
+    f.write('%d\n\n' % natoms)
     for c in coords:
         f.write('%s %s %s %s\n' % (c[0], c[1], c[2], c[3]))
 
